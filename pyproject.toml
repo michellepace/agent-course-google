@@ -16,7 +16,9 @@ description = "Versatile UV Python project setup with TDD, scripts, Jupyter note
 readme = "README.md"
 authors = [{ name = "Michelle" }]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "google-adk>=1.18.0",
+]
 
 [dependency-groups]
 dev = [
@@ -84,12 +86,20 @@ convention = "google"
     "PLR2004", # Magic value used in comparison
     "S101",    # Use of assert detected
 ]
-"*.ipynb" = [  # Jupyter notebooks
+"*.ipynb" = [  # Jupyter notebooks - relaxed rules for learning/tutorial code
     "D103",    # Missing docstring in public function
     "PLR2004", # Magic value used in comparison
     "S101",    # Use of assert detected
     "E402",    # Module level import not at top of file (per-cell in notebooks)
     "I001",    # Import block unsorted (cell-based imports differ from modules)
+    "E501",    # Line too long (notebooks often have long strings/HTML)
+    "ANN",     # Type annotations (not needed in notebooks)
+    "TRY",     # Exception handling style (notebooks use simple patterns)
+    "EM",      # Exception message style
+    "BLE001",  # Blind except (acceptable in notebooks for user feedback)
+    "N806",    # Variable naming (notebooks often use different conventions)
+    "A004",    # Builtin shadowing (common in notebooks, e.g. display)
+    "B904",    # Exception chaining (not critical in notebooks)
 ]
 
 [tool.ruff.lint.pylint]

@@ -6,8 +6,10 @@ Course details: [docs/00_course.md](docs/00_course.md)
 
 ## Setup
 
+### 1. Install Dependencies
+
 ```bash
-# Install dependencies
+# Install all dependencies (including google-adk)
 uv sync
 
 # Configure git for clean notebook commits
@@ -16,6 +18,12 @@ uv run nbstripout --install
 # Install pre-commit hooks
 uv run pre-commit install
 ```
+
+### 2. Configure Gemini API Key
+
+1. Visit [Google AI Studio](https://aistudio.google.com/app/api-keys)
+2. Create a new API key and save in new root file `.env`
+3. Save into `.env` as: GOOGLE_API_KEY=your_actual_api_key_here
 
 ## Project Structure
 
